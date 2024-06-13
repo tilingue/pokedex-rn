@@ -58,6 +58,9 @@ function PokemonCard({url}: PokemonCardProps) {
                   key={`${pokemonData?.name}_${type}`}
                   style={[styles.icon, {backgroundColor: iconSettings.color}]}>
                   <FontAwesomeIcon color="#ffffff" icon={iconSettings.icon} />
+                  <Text style={styles.iconLabel}>
+                    {capitalizeFirstLetter(type)}
+                  </Text>
                 </View>
               );
             })}
@@ -91,8 +94,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 16,
   },
   cardContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     padding: 16,
     backgroundColor: '#343C63',
     borderBottomLeftRadius: 16,
@@ -104,18 +105,22 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   iconsContainer: {
-    width: 70,
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    marginTop: 16,
   },
   icon: {
-    width: 30,
     height: 30,
     backgroundColor: 'yellow',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
     borderRadius: 15,
-    marginLeft: 10,
+    marginRight: 10,
+    paddingHorizontal: 10,
+  },
+  iconLabel: {
+    marginLeft: 8,
+    color: '#ffffff',
   },
 });
 
